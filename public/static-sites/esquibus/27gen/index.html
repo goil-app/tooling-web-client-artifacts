@@ -145,23 +145,6 @@
                   </div>
                 </div>
                 <div class="mb-4">
-                  <div class="mb-4">
-                    <label
-                      for="alergies"
-                      class="block text-sm font-medium text-gray-700"
-                      >Malalties / al·lèrgies o medicació que l'organització ha
-                      de tenir en compte</label
-                    >
-                    <textarea
-                      id="alergies"
-                      name="additional_${i}"
-                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                      placeholder="Detalls"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="mb-4">
                   <label class="block text-lg font-bold text-gray-700"
                     >Omplir en el cas d'haver de llogar material</label
                   >
@@ -179,7 +162,7 @@
                           name="height_${i}"
                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
                           placeholder="cm"
-                          required
+                          min="0"
                         />
                       </div>
                       <div>
@@ -194,7 +177,7 @@
                           name="weight_${i}"
                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
                           placeholder="kg"
-                          required
+                          min="0"
                         />
                       </div>
                       <div>
@@ -209,7 +192,7 @@
                           name="footSize_${i}"
                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
                           placeholder="Número"
-                          required
+                          min="0"
                         />
                       </div>
                     </div>
@@ -328,7 +311,6 @@
               age: parseInt(formObject[`age_${i}`]),
               email: formObject[`email_${i}`],
               phone: formObject[`phone_${i}`],
-              additional: formObject[`additional_${i}`],
               height: parseFloat(formObject[`height_${i}`]),
               weight: parseFloat(formObject[`weight_${i}`]),
               footSize: parseInt(formObject[`footSize_${i}`]),
@@ -367,7 +349,7 @@
           // Convertir el objeto final a JSON
           const finalJSON = JSON.stringify(finalObject, null, 2);
           try {
-            const response = await fetch('http://127.0.0.1:5001/goil-community/europe-west1/skiBusFamilyForm', {
+            const response = await fetch('https://europe-west1-goil-community.cloudfunctions.net/esquiBusNewInscription', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -380,8 +362,9 @@
 
             if (response.ok) {
                 response.json().then(data => {
-                    const stripeUrl = data.stripe.url;
-                    window.open(stripeUrl, '_blank');
+                    const paymentRedirectionUrl = data.paymentRedirection.url;
+                    // window.open(paymentRedirectionUrl, '_blank');
+                    window.location.href = paymentRedirectionUrl
                 }).catch(error => {
                     window.alert(error);
                 });
@@ -477,6 +460,7 @@
                           name="reciU8Q2JHVwTE6X5"
                           class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
                           placeholder="0"
+                          min="0"
                         />
                         <span
                           class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
@@ -496,13 +480,14 @@
                           name="rec67KGsvpNzRgTKz"
                           class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
                           placeholder="0"
+                          min="0"
                         />
                         <span
                           class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
                           >77€</span
                         >
                       </div>
-                      <span class="text-gray-700">Autocar + forfait</span>
+                      <span class="text-gray-700">Autocar + forfait + lloguer esquís + casc</span>
                     </div>
                   </div>
                   <hr class="my-2 border-gray-300" />
@@ -515,6 +500,7 @@
                           name="recZX1lmyyZXr57OC"
                           class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
                           placeholder="0"
+                          min="0"
                         />
                         <span
                           class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
@@ -522,7 +508,7 @@
                         >
                       </div>
                       <span class="text-gray-700"
-                        >Autocar + forfait + lloguer esquís + casc</span
+                        >Autocar + forfait + lloguer snowboard + casc</span
                       >
                     </div>
                   </div>
@@ -536,6 +522,7 @@
                           name="recDv4MHPdryvCpny"
                           class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
                           placeholder="0"
+                          min="0"
                         />
                         <span
                           class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
@@ -543,7 +530,7 @@
                         >
                       </div>
                       <span class="text-gray-700"
-                        >Autocar + forfait + lloguer snowboard + casc</span
+                        >Classe grupal d’esquí de 2 hores optativa</span
                       >
                     </div>
                   </div>
@@ -556,6 +543,7 @@
                           name="rec9GkVnJHXPiJLNB"
                           class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20"
                           placeholder="0"
+                          min="0"
                         />
                         <span
                           class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
@@ -563,7 +551,7 @@
                         >
                       </div>
                       <span class="text-gray-700"
-                        >Classe grupal d’esquí de 2 hores optativa</span
+                        >Classe grupal de snowboard de 2 hores optativa</span
                       >
                     </div>
                   </div>
@@ -623,17 +611,17 @@
             <div class="text-center">
               <label class="text-sm text-gray-700">Amb la col·laboració de:</label>
               <div class="mt-2 flex justify-center"> <!-- Agrega margen superior para crear espacio -->
-                  <img src="./images/tiana.png" alt="Goil Logo" class="inline-block h-10 mr-4"> <!-- Agrega margen a la derecha -->
-                  <img src="./images/esportsestel.png" alt="Goil Logo" class="inline-block h-10">
+                  <img src="../images/tiana.png" alt="Goil Logo" class="inline-block h-20 mr-4"> <!-- Agrega margen a la derecha -->
+                  <img src="../images/esportsestel.png" alt="Goil Logo" class="inline-block h-20">
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
       <div>
         <a href="https://goil.app" class="text-[#3A3A3A] font-medium">
           <p class="text-center">Powered by 
-            <img src="./images/logo_goil.svg" alt="Goil Logo" class="inline-block" style="height: 1em;">
+            <img src="../images/logo_goil.svg" alt="Goil Logo" class="inline-block" style="height: 1em;">
           </p>
         </a>
       </div>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Festes del Pa Beneit</title>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+      <!-- Carga inicial -->
+   </head>
+   <body class="bg-gray-100">
+    
+      <div id="formContainer" class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
+         <div class="relative py-3 sm:max-w-4xl sm:mx-auto">
+            <div
+               class="relative px-4 py-4 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+               >
+               
+               <div class="max-w-2xl mx-auto">
+                  <!-- Cabecera -->
+                  <div class="block items-center space-x-5">
+                     <div
+                        class="block pl-2 font-semibold text-xl self-start text-gray-700"
+                        >
+                        <h2 class="leading-relaxed">Concurs del millor barri del Vendrell</h2>
+                        <p class="text-sm text-gray-500 font-normal leading-relaxed">
+                           Fes que guanyi el teu barri, puja una foto a l'Instagram fent servir el filtre del teu barri i etiqueta'ns <b>@goil.app</b>. <br />
+                           Guanyarà el barri amb el filtre més utilitzat. <br />
+                           Participa i fes història.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <hr class="my-2 border-gray-300" />
+                    <div
+                     class="divide-y divide-gray-200 bg-green-100 mb-4 p-4 rounded-lg participant"
+                     id="participants-container"
+                     >
+                     <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 mb-4">
+                        <h3 class="text-lg font-semibold">Filtres dels barris</h3>
+                        <!-- Serrallo-->
+                        <a href = "https://www.instagram.com/ar/500195779338871/">
+                            <label 
+                            for="weekly" 
+                            class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Serrallo i Font de la Menya</div>
+                                </div>
+                                <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                            </label>
+                        </a> 
+                        <!-- França --> 
+                        <a href = "https://www.instagram.com/ar/978621480414670/">
+                            <label 
+                            for="monthly" 
+                            class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">França</div>
+                                </div>
+                                <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                            </label>
+                        </a>  
+                        <!-- Carretera -->
+                        <a href = "https://www.instagram.com/ar/1219277545917122/">
+                           <label 
+                           for="monthly" 
+                           class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                               <div class="block">
+                                   <div class="w-full text-sm font-semibold">Carretera</div>
+                               </div>
+                               <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                           </label>
+                       </a>  
+                        <!-- Pl nova -->
+                        <a href = "https://www.instagram.com/ar/2753242031506772/">
+                           <label 
+                           for="monthly" 
+                           class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                               <div class="block">
+                                   <div class="w-full text-sm font-semibold">Plaça Nova i Barceloneta</div>
+                               </div>
+                               <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                           </label>
+                       </a>  
+                        <!-- Pl. Vella -->
+                        <a href = "https://www.instagram.com/ar/1057488079417734/">
+                           <label 
+                           for="monthly" 
+                           class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                               <div class="block">
+                                   <div class="w-full text-sm font-semibold">Plaça Vella</div>
+                               </div>
+                               <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                           </label>
+                       </a>  
+                        <!-- Puig i pèlag -->
+                        <a href = "https://www.instagram.com/ar/1180051523195580/">
+                           <label 
+                           for="monthly" 
+                           class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                               <div class="block">
+                                   <div class="w-full text-sm font-semibold">Puig i Pèlag</div>
+                               </div>
+                               <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                           </label>
+                       </a>  
+                        <!-- Muntanyeta --> 
+                        <a href = "https://www.instagram.com/ar/888158646408390/">
+                           <label 
+                           for="monthly" 
+                           class="inline-flex items-center justify-between w-full px-5 py-2.5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600">
+                               <div class="block">
+                                   <div class="w-full text-sm font-semibold">Muntanyeta</div>
+                               </div>
+                               <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                           </label>
+                       </a>  
+                     </div>
+                    </div>
+            </div>
+         </div>
+         <div>
+            <a href="https://goil.app" class="text-[#3A3A3A] font-medium">
+               <p class="text-center">Powered by 
+                  <img src="./images/logo_goil.svg" alt="Goil Logo" class="inline-block" style="height: 1em;" />
+               </p>
+            </a>
+         </div>
+      </div>
+   </body>
+</html>

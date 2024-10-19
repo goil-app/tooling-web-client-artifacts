@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Buttons</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .pdf-button {
+        background-size: cover;
+        background-position: center;
+      }
+      .custom-button {
+            background-color: #f7bd21; /* Color personalizado */
+        }
+    </style>
+  </head>
+  <body class="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <!-- Button "Fer inscripció" -->
+    <div class="grid grid-cols-2 gap-4">
+      <a
+        href="https://drive.google.com/file/d/1DlWOaN4G-vFkviFitaOJzgkEa984bfQb/view?usp=drive_link"
+        class="pdf-button w-48 h-48 bg-gray-300"
+        style="background-image: url('./images/zonaescolar.jpg')"
+      >
+        <span class="sr-only">PDF 1</span>
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1wgNlqYoyd71z_gU-96Qzf4DxWHjtJkSF/view?usp=drive_link"
+        class="pdf-button w-48 h-48 bg-gray-300"
+        style="background-image: url('./images/guimera.jpg')"
+      >
+        <span class="sr-only">PDF 2</span>
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1jDje54ubkQVXakr0k-xk5HNK-StKxpW7/view?usp=drive_link"
+        class="pdf-button w-48 h-48 bg-gray-300"
+        style="background-image: url('./images/comaruga.jpg')"
+      >
+        <span class="sr-only">PDF 3</span>
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1ACg3He5c7PJON9Wt5aPlmX4F1lqZ27Hl/view?usp=drive_link"
+        class="pdf-button w-48 h-48 bg-gray-300"
+        style="background-image: url('./images/baixpenedes.jpg')"
+      >
+        <span class="sr-only">PDF 4</span>
+      </a>
+    </div>
+  </body>
+</html>

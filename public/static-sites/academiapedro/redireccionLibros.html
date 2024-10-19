@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirección Automática</title>
+  </head>
+  <body>
+    <script>
+      // JSON con los ID y las URLs correspondientes
+      const accountUrls = 
+      {
+  "6577222b2859a8ce348aaec3": {
+    "name": "1º PRIMARIA",
+    "url": "https://drive.google.com/file/d/1OrzeiqCtC7EqlwCY39Ngj_G9DgnfDb8V/view?usp=share_link"
+  },
+  "657722442859a8ce348aaf5f": {
+    "name": "2º primaria",
+    "url": "https://drive.google.com/file/d/1Kqs16Iq3D51P4-6kDtyKljHceOV2C6AJ/view?usp=share_link"
+  },
+  "657722652859a8ce348ab005": {
+    "name": "3º primaria",
+    "url": "https://drive.google.com/file/d/1JSdBtjjN6DPr6uGUg-uASz7X5lHIVC18/view?usp=drivesdk"
+  },
+  "657722832859a8ce348ab0b5": {
+    "name": "4º primaria",
+    "url": "https://drive.google.com/file/d/1DmIQ-iWSGAuG3pfXOd63PpY7BdVSIwpb/view?usp=share_link"
+  },
+  "657722b62859a8ce348ab16f": {
+    "name": "5º primaria",
+    "url": "https://drive.google.com/file/d/1_jMTLo7FFtvQbX4SN4AW4a33GGQr6Ptq/view?usp=share_link"
+  },
+  "657722d92859a8ce348ab233": {
+    "name": "6º primaria",
+    "url": "https://drive.google.com/file/d/1t1CblRWR-J1FxJOCK1tpEeRqU_icKZL-/view?usp=share_link"
+  },
+  "657723042859a8ce348ab301": {
+    "name": "1º ESO",
+    "url": "https://drive.google.com/file/d/1i58XQ9O1tcgnRHFi9C95qvwXWx-9Hkhs/view?usp=share_link"
+  },
+  "6577234c2859a8ce348ab3d9": {
+    "name": "2º ESO",
+    "url": "https://drive.google.com/file/d/1FKVKC4TePpwDDx78R1Uy9-SaVpJJIoGV/view?usp=share_link"
+  },
+  "657723752859a8ce348ab4bb": {
+    "name": "3º ESO",
+    "url": "https://drive.google.com/file/d/1RZ0s8C-0axQ_8pl2m2P0Vpd26SpxLTv0/view?usp=share_link"
+  },
+  "6577239a2859a8ce348ab5a7": {
+    "name": "4º ESO",
+    "url": "https://drive.google.com/file/d/1RZ0s8C-0axQ_8pl2m2P0Vpd26SpxLTv0/view?usp=share_link"
+  },
+  "657723d92859a8ce348ab79d": {
+    "name": "B1 TRINITY",
+    "url": "https://drive.google.com/file/d/1vq1BpM2YpsaR__pWP9hSwfxZ4PIAa97t/view?usp=share_link"
+  },
+  "657723fd2859a8ce348ab8a7": {
+    "name": "B2 TRINITY",
+    "url": "https://drive.google.com/file/d/1dEo78MD75C_FwTqKVtMeOyT2cbbCbrH0/view?usp=share_link"
+  }
+}
+
+      // Función para obtener el ID de la URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Función para redirigir a la URL o mostrar error
+      function redirectToUrl(id) {
+        const account = accountUrls[id];
+        if (account && account.url) {
+          window.location.href = account.url;
+        } else {
+          document.body.innerHTML =
+            "<p>Error: URL no encontrada o no especificada para el ID proporcionado.</p>";
+        }
+      }
+
+      // Obtener el ID y realizar la redirección
+      const id = getQueryParam("accountType");
+      if (id) {
+        redirectToUrl(id);
+      } else {
+        document.body.innerHTML =
+          "<p>Error: No se ha proporcionado un ID válido.</p>";
+      }
+    </script>
+  </body>
+</html>

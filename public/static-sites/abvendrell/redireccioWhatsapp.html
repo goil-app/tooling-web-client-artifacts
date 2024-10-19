@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirección Automática</title>
+  </head>
+  <body>
+    <script>
+      // JSON con los ID y las URLs correspondientes
+      const accountUrls = {
+        "6675637b9a0e3915962e3c7e": {
+          name: "Premini Masc",
+          url: "https://chat.whatsapp.com/BY5X3oH72XEDkzyPuEImvR",
+        },
+        "667572fad9514e5fb6f7737b": {
+          name: "Mini Masc 1",
+          url: "https://chat.whatsapp.com/GqWUBtaTrzBB3HXuTGg4Za",
+        },
+        "66757330d9514e5fb6f77678": {
+          name: "Mini Masc 2",
+          url: "https://chat.whatsapp.com/IWnAMVaNXqx9jZ2XiXHQsa",
+        },
+        "66757357d9514e5fb6f7782e": {
+          name: "Inf Masc 2",
+          url: "https://chat.whatsapp.com/Eq2UKDkov8428UoKR8xE1y",
+        },
+        "66757370d9514e5fb6f77b72": {
+          name: "Inf Masc 1",
+          url: "https://chat.whatsapp.com/GU4JxvdptUx2FASVZ1vpaC",
+        },
+        "6675747cd9514e5fb6f7e2f2": {
+          name: "Cadet Masc 3",
+          url: "https://chat.whatsapp.com/Kf8ScGc5XmGGMXpfPgDbFG",
+        },
+        "6675746ad9514e5fb6f7e0e5": {
+          name: "Cadet Masc 2",
+          url: "https://chat.whatsapp.com/KozXzBMZK85A1TiF5MR4Oj",
+        },
+        "6675744ed9514e5fb6f7de44": {
+          name: "Cadet Masc 1",
+          url: "https://chat.whatsapp.com/C6wy6zPiTQuDwGaYsB4saa",
+        },
+        "6675761dd9514e5fb6f80c1a": {
+          name: "Júnior Masc 2",
+          url: "https://chat.whatsapp.com/I4hHyqmxxCxHbpytZlTO1g",
+        },
+        "66757634d9514e5fb6f80e76": {
+          name: "Júnior Masc 1",
+          url: "https://chat.whatsapp.com/I7SgzQ2H1W4LuorcJaPNxN",
+        },
+        "66757664d9514e5fb6f812d5": {
+          name: "Mini Fem",
+          url: "https://chat.whatsapp.com/LrW51bnWBxa3e1OOi0cM9S",
+        },
+        "66757691d9514e5fb6f819ab": {
+          name: "Preinf Femení",
+          url: "https://chat.whatsapp.com/FwPHlHP2vxp3QOx7HoWuu1",
+        },
+        "667576cbd9514e5fb6f836ac": {
+          name: "Cadet Fem 2",
+          url: "https://chat.whatsapp.com/JEul7N1HjCNIpbM2L5uOJu",
+        },
+        "667576b8d9514e5fb6f82d08": {
+          name: "Cadet Fem 1",
+          url: "https://chat.whatsapp.com/CZqNHJf8YDm7xfRKhqNwdd",
+        },
+        "667576ead9514e5fb6f8440a": {
+          name: "Júnior Fem",
+          url: "https://chat.whatsapp.com/KQ4tJ0DVip17qAWdIrG08A",
+        },
+      };
+
+      // Función para obtener el ID de la URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Función para redirigir a la URL o mostrar error
+      function redirectToUrl(id) {
+        const account = accountUrls[id];
+        if (account && account.url) {
+          window.location.href = account.url;
+        } else {
+          document.body.innerHTML =
+            "<p>Error: URL no encontrada o no especificada para el ID proporcionado.</p>";
+        }
+      }
+
+      // Obtener el ID y realizar la redirección
+      const id = getQueryParam("accountType");
+      if (id) {
+        redirectToUrl(id);
+      } else {
+        document.body.innerHTML =
+          "<p>Error: No se ha proporcionado un ID válido.</p>";
+      }
+    </script>
+  </body>
+</html>

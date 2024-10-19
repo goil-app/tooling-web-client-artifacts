@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+      }
+      .header,
+      .details-header {
+        background-color: #2a6355;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      .details {
+        margin: 20px 0;
+      }
+      .footer {
+        background-color: #f2f2f2;
+        color: black;
+        padding: 10px;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .powered-by {
+        text-align: center;
+        margin-top: 30px; /* Espacio adicional en la parte superior */
+        margin-bottom: 20px; /* Espacio adicional en la parte inferior */
+        font-size: 16px; /* Tamaño de fuente más grande */
+        font-family: Arial, sans-serif; /* Tipo de letra para mantener la coherencia */
+        color: #666666; /* Un color de texto más suave */
+      }
+      .powered-by a {
+        color: #2a6355; /* Color del enlace para coincidir con el esquema de colores del correo electrónico */
+        text-decoration: none; /* Sin subrayado en el enlace */
+      }
+      .powered-by a:hover {
+        text-decoration: underline; /* Subrayado al pasar el ratón para una mejor accesibilidad */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Confirmación de Pedido</h2>
+      </div>
+      <div class="details">
+        <p>Hola!</p>
+        <p>Se ha realizado un nuevo pedido. Aquí tienes todos los detalles:</p>
+      </div>
+      <div class="details-header">
+        <h3>Productos:</h3>
+      </div>
+      <div class="details">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Ejemplo de un producto; se generarán dinámicamente -->
+            <tr>
+              <td>Tortilla francesa</td>
+              <td>2</td>
+              <td>7.00 €</td>
+            </tr>
+            <tr>
+              <td>Jamón dulce</td>
+              <td>1</td>
+              <td>3.50 €</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Total:</strong> 10.50 €</p>
+      </div>
+      <div class="details-header">
+        <h3>Datos de Contacto:</h3>
+      </div>
+      <div class="details">
+        <ul>
+          <li><strong>Nombre:</strong> Juan</li>
+          <li><strong>Apellidos:</strong> Pérez</li>
+          <li><strong>Teléfono:</strong> 123456789</li>
+        </ul>
+      </div>
+      <div class="details-header">
+        <h3>Datos de Entrega:</h3>
+      </div>
+      <div class="details">
+        <ul>
+          <li><strong>Día de Entrega:</strong> 2023-12-31</li>
+          <li><strong>Hora de Entrega:</strong> 12:30</li>
+          <li><strong>Sitio de Entrega:</strong> A domicilio</li>
+          <li><strong>Ubicación:</strong> El Vendrell</li>
+          <li><strong>Dirección:</strong> Calle Falsa 123</li>
+        </ul>
+      </div>
+      <div class="details-header">
+        <h3>Forma de Pago:</h3>
+      </div>
+      <div class="details">
+        <p>Tarjeta</p>
+      </div>
+      <div class="details-header">
+        <h3>Comentarios:</h3>
+      </div>
+      <div class="details">
+        <p>Sin cebolla por favor</p>
+      </div>
+    </div>
+    <div class="powered-by">
+      Powered by <a href="https://goil.app">Goil</a>
+    </div>
+  </body>
+</html>

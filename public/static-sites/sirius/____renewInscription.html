@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Formulari d'Inscripció</title>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+      <!-- Carga inicial -->
+      <script>
+         // Download initial data
+         document.addEventListener("DOMContentLoaded", async (event) => {
+         
+         })
+      </script>
+      <!-- Activar botón si hay términos y condiciones -->
+      <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            const paymentSelect = document.getElementById('paymentMethod');
+            const bankFields = document.getElementById('bankFields');
+            const bizumFields = document.getElementById('bizumFields');
+
+            function toggleBankFields() {
+               // Muestra los campos solo si 'Transfer' está seleccionado
+               bankFields.style.display = paymentSelect.value === 'Transferència' ? 'block' : 'none';
+               bizumFields.style.display = paymentSelect.value === 'Bizum' ? 'block' : 'none';
+            }
+
+            // Evento para cambiar la visibilidad cuando se modifique la selección
+            paymentSelect.addEventListener('change', toggleBankFields);
+
+            // Llamar inicialmente para configurar la visibilidad correcta al cargar
+            toggleBankFields();
+         });
+      </script>
+      <!-- Enviar formulario -->
+      <script>
+         document.addEventListener("DOMContentLoaded", function() {
+             const form = document.getElementById('registerForm');
+             form.addEventListener('submit', async function (e) {
+             e.preventDefault(); // Evita el envío predeterminado del formulario
+         ;  
+             document.getElementById('buttonText').classList.add('hidden');
+             document.getElementById('spinner').classList.remove('hidden');
+         
+             // Obtiene todos los campos del formulario
+             const formData = new FormData(form);
+             const formObject = {};
+         
+             // Convierte los datos del formulario en un objeto
+             formData.forEach((value, key) => {
+                 formObject[key] = value;
+             });
+         
+             const finalObject = {
+               "fullname": formObject["fullname"],
+               "fullname_1": formObject["fullname_1"],
+               "phone_1": formObject["phone_1"],
+               "fullname_2": formObject["fullname_2"],
+               "phone_2": formObject["phone_2"],
+               "level": formObject["level"],
+               "payment_method": formObject["paymentMethod"]
+            }
+             const finalData = {
+              data: [finalObject]
+             }
+              const finalJSON = JSON.stringify(finalData, null, 2);
+              try {
+                    
+                    const response = await fetch('https://europe-west1-goil-community.cloudfunctions.net/siriusNewInscription', {
+                       method: 'POST',
+                       headers: {
+                       'Content-Type': 'application/json'
+                       },
+                       body: finalJSON
+                    });
+
+                    if (response.ok) {
+                       response.json().then(data => {
+                          window.location.href = "https://goil-community.web.app/static-sites/sirius/confirmation.html"
+                       }).catch(error => {
+                          window.alert(error);
+                       });
+                    } else {
+                       window.alert("Error al conectar con el servidor");
+                    }
+                 } catch {
+                    window.alert(error)
+                 }
+
+             });
+         });
+      </script>
+   </head>
+   <body class="bg-gray-100">
+      Aquest formulari no està disponible.
+   </body>
+</html>

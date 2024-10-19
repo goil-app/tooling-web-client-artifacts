@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulari d'Inscripció</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        updateParticipants(); // Esta función se ejecutará al cargar la página
+
+        clearButton.addEventListener('click', function () {
+          // Obtiene todos los elementos con clase 'participant'
+          const participants = document.querySelectorAll('.participant');
+
+          // Recorre cada elemento y borra su contenido
+          participants.forEach(participant => {
+            participant.querySelectorAll('input, textarea').forEach(field => {
+              field.value = ''; // Borra el contenido del campo
+            });
+          });
+        });
+      });
+      function updateParticipants() {
+        const participantsNumber = 1
+        const participantsContainer = document.getElementById(
+          "participants-container"
+        );
+        const backgroundColors = [
+          "bg-blue-100",
+          "bg-green-100",
+          "bg-yellow-100",
+          "bg-red-100",
+          "bg-purple-100",
+          "bg-pink-100",
+        ];
+
+        participantsContainer.innerHTML = "";
+
+        // Crear los campos para cada participante
+        for (let i = 1; i <= participantsNumber; i++) {
+          const colorClass =
+            backgroundColors[(i - 1) % backgroundColors.length];
+          const participantDiv = document.createElement("div");
+          participantDiv.classList.add(
+            "participant",
+            "mb-4",
+            colorClass,
+            "p-4",
+            "rounded-lg"
+          );
+          participantDiv.innerHTML = `
+                <h3 class="text-lg font-semibold mb-4">Participant</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      for="nom"
+                      class="block text-sm font-medium text-gray-700"
+                      >Nom</label
+                    >
+                    <input
+                      type="text"
+                      id="nom"
+                      name="name_${i}"
+                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                      placeholder="Nom"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="surname"
+                      class="block text-sm font-medium text-gray-700"
+                      >Cognoms</label
+                    >
+                    <input
+                      type="text"
+                      id="cognoms"
+                      name="surname_${i}"
+                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                      placeholder="Cognoms"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="dni"
+                      class="block text-sm font-medium text-gray-700"
+                      >DNI</label
+                    >
+                    <input
+                      type="text"
+                      id="dni"
+                      name="participantId_${i}"
+                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                      placeholder="DNI"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="edat"
+                      class="block text-sm font-medium text-gray-700"
+                      >Edat</label
+                    >
+                    <input
+                      type="number"
+                      id="edat"
+                      name="age_${i}"
+                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                      placeholder="Edat"
+                      required
+                      min=14
+                      max=25
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="email"
+                      class="block text-sm font-medium text-gray-700"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email_${i}"
+                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="telefon"
+                      class="block text-sm font-medium text-gray-700"
+                      >Telèfon de contacte</label
+                    >
+                    <input
+                      type="tel"
+                      id="telefon"
+                      name="phone_${i}"
+                      class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                      placeholder="Telèfon"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-lg font-bold text-gray-700"
+                    >Omplir en el cas d'haver de llogar material</label
+                  >
+                  <div class="mt-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                      <div>
+                        <label
+                          for="alçada"
+                          class="block text-sm font-medium text-gray-700"
+                          >Alçada</label
+                        >
+                        <input
+                          type="number"
+                          id="alçada"
+                          name="height_${i}"
+                          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                          placeholder="cm"
+                          min="0"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="pes"
+                          class="block text-sm font-medium text-gray-700"
+                          >Pes</label
+                        >
+                        <input
+                          type="number"
+                          id="pes"
+                          name="weight_${i}"
+                          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                          placeholder="kg"
+                          min="0"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="npeu"
+                          class="block text-sm font-medium text-gray-700"
+                          >Nº Peu</label
+                        >
+                        <input
+                          type="number"
+                          id="npeu"
+                          name="footSize_${i}"
+                          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                          placeholder="Número"
+                          min="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <span class="block text-sm font-medium text-gray-700"
+                    >Esquí o Snowboard</span
+                  >
+                  <div class="mt-2">
+                    <label class="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="bookingType_${i}"
+                        value="esqui"
+                        class="form-radio"
+                        checked
+                      />
+                      <span class="ml-2">Esquí</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="bookingType_${i}"
+                        value="snowboard"
+                        class="form-radio"
+                      />
+                      <span class="ml-2">Snowboard</span>
+                    </label>
+                  </div>
+                </div>
+          `;
+          participantsContainer.appendChild(participantDiv);
+        }
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        initializePriceCalculator(); // Agrega esta línea para inicializar el calculador de precios
+      });
+
+      function initializePriceCalculator() {
+        // Obtén todos los campos de cantidad con la clase "quantity-input"
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+
+        // Agrega un manejador de eventos "input" a cada campo de cantidad
+        quantityInputs.forEach((input) => {
+          input.addEventListener('input', updateTotal);
+        });
+
+        // Función para calcular el precio total
+        function updateTotal() {
+          let totalPrice = 0;
+
+          // Recorre todos los campos de cantidad y suma los precios
+          quantityInputs.forEach((input) => {
+            const priceElement = input.nextElementSibling; // El elemento de precio adyacente al input
+            const price = parseFloat(priceElement.textContent);
+            const quantity = parseInt(input.value) || 0; // Si el valor no es un número válido, usa 0
+
+            totalPrice += price * quantity;
+          });
+
+          // Actualiza el precio total en el elemento con ID "total-price"
+          const totalPriceElement = document.getElementById('buttonText');
+          totalPriceElement.textContent = `Pagar ${totalPrice.toFixed(0)} €`;
+        }
+
+        // Llama a la función inicialmente para mostrar el precio total inicial
+        updateTotal();
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkbox = document.getElementById("terms-checkbox");
+        const submitButton = document.getElementById("submitButton");
+        // Función para habilitar o deshabilitar el botón de envío
+        function toggleSubmitButton() {
+          submitButton.disabled = !checkbox.checked;
+        }
+
+        // Agregar un manejador de eventos al checkbox para verificar su estado
+        checkbox.addEventListener("change", toggleSubmitButton);
+
+        // Llama a la función inicialmente para configurar el botón según el estado inicial del checkbox
+        toggleSubmitButton();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault(); // Evita el envío predeterminado del formulario
+;  
+          document.getElementById('buttonText').classList.add('hidden');
+          document.getElementById('spinner').classList.remove('hidden');
+
+          // Obtiene todos los campos del formulario
+          const formData = new FormData(form);
+          const formObject = {};
+
+          // Convierte los datos del formulario en un objeto
+          formData.forEach((value, key) => {
+            formObject[key] = value;
+          });
+
+          // Creamos un array para almacenar los participantes
+          const participants = [];
+
+          // Iteramos sobre el JSON original para crear los objetos de participantes
+          for (let i = 1; formObject[`name_${i}`]; i++) {
+            const participant = {
+              name: formObject[`name_${i}`],
+              surname: formObject[`surname_${i}`],
+              participantId: formObject[`participantId_${i}`],
+              age: parseInt(formObject[`age_${i}`]),
+              email: formObject[`email_${i}`],
+              phone: formObject[`phone_${i}`],
+              height: parseFloat(formObject[`height_${i}`]),
+              weight: parseFloat(formObject[`weight_${i}`]),
+              footSize: parseInt(formObject[`footSize_${i}`]),
+              bookingType: formObject[`bookingType_${i}`]
+            };
+            participants.push(participant);
+          }
+
+          // Creamos un array para almacenar los servicios
+          const services = [];
+
+          // Iteramos sobre el objeto para identificar los campos de servicios
+          for (const key in formObject) {
+            const quantity = parseInt(formObject[key]) || 0
+            if (key.startsWith('rec') && quantity > 0) {
+              const service = {
+                id: key,
+                quantity: parseInt(formObject[key])
+              };
+              services.push(service);
+            }
+          }
+
+          if (services.length == 0) {
+            window.alert("S'ha de seleccionar al menys 1 servei")
+            return
+          }
+
+          // Crear el objeto final con el formato deseado
+          const finalObject = {
+            eventId: document.getElementById("number-select").value,
+            participants: participants,
+            services: services
+          };
+
+          // Convertir el objeto final a JSON
+          const finalJSON = JSON.stringify(finalObject, null, 2);
+          try {
+            const response = await fetch('https://europe-west1-goil-community.cloudfunctions.net/esquiBusNewInscription', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: finalJSON
+            });
+
+            document.getElementById('buttonText').classList.remove('hidden');
+            document.getElementById('spinner').classList.add('hidden');
+
+            if (response.ok) {
+                response.json().then(data => {
+                    const paymentRedirectionUrl = data.paymentRedirection.url;
+                    // window.open(paymentRedirectionUrl, '_blank');
+                    window.location.href = paymentRedirectionUrl
+                }).catch(error => {
+                    window.alert(error);
+                });
+            } else {
+              response.json().then(data => {
+                window.alert(data.error);
+              })
+            }
+          } catch (error) {
+            window.alert(error)
+          }
+        });
+    });
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
+      <div class="relative py-3 sm:max-w-4xl sm:mx-auto">
+        <div
+          class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+        >
+          <div class="max-w-2xl mx-auto">
+            <!-- Cabecera -->
+            <div class="flex items-center space-x-5">
+              <div
+                class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono"
+              >
+                i
+              </div>
+              <div
+                class="block pl-2 font-semibold text-xl self-start text-gray-700"
+              >
+                <h2 class="leading-relaxed">Inscripcions</h2>
+                <p class="text-sm text-gray-500 font-normal leading-relaxed">
+                  Si us voleu inscriure, si us plau, ompliu el següent
+                  formulari, truqueu-nos per telèfon o envieu-nos un correu.
+                </p>
+              </div>
+            </div>
+
+            <!-- Banner -->
+            <div class="my-4 bg-gray-200 text-center rounded-lg py-2">
+              <span class="font-bold">Per a joves de 14 a 25 anys</span> <br>
+                  630 774 11 - info@esportstel.com
+            </div>
+
+            <!-- Dropdown -->
+            <div class="my-4">
+              <label for="number-select" class="block text-sm font-medium text-gray-700">
+                Indica la població
+              </label>
+              <div class="flex items-center mt-1">
+                <select
+                  id="number-select"
+                  name="number"
+                  class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  onchange=""
+                >
+                  <option value="recahqgHLQmbxBEfz">Montgat</option>
+                  <option value="recS2kySCBAPThxb4">Tiana</option>
+                </select>
+                <!-- Botón "Esborrar" con fondo rojo -->
+                <button id="clearButton" class="bg-red-500 text-white px-4 py-2 rounded-md ml-2">Esborrar</button>
+              </div>
+            </div>
+            
+            <hr class="my-2 border-gray-300" />
+
+            <!-- Formulario participantes -->
+            <form id="registerForm" method="POST">
+              <div
+              class="divide-y divide-gray-200"
+              id="participants-container"
+              ></div>
+
+              <hr class="my-2 border-gray-300" />
+            
+              <!-- Servicios -->
+              <div id="additional-options" class="mt-6">
+                <h3 class="text-lg font-semibold mb-2">
+                  A continuació, marqueu el número de participants a la casella
+                  que correspongui...
+                </h3>
+
+                <div class="space-y">
+                  <div class="flex items-center">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center mr-7">
+                        <input
+                          type="number"
+                          name="reciU8Q2JHVwTE6X5"
+                          class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
+                          placeholder="0"
+                          min="0"
+                          max="1"
+                        />
+                        <span
+                          class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
+                          >62€</span
+                        >
+                      </div>
+                      <span class="text-gray-700">Autocar + forfait</span>
+                    </div>
+                  </div>
+                  <hr class="my-2 border-gray-300" />
+
+                  <div class="flex items-center">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center mr-7">
+                        <input
+                          type="number"
+                          name="rec67KGsvpNzRgTKz"
+                          class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
+                          placeholder="0"
+                          min="0"
+                          max="1"
+                        />
+                        <span
+                          class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
+                          >77€</span
+                        >
+                      </div>
+                      <span class="text-gray-700">Autocar + forfait + lloguer esquís + casc</span>
+                    </div>
+                  </div>
+                  <hr class="my-2 border-gray-300" />
+
+                  <div class="flex items-center">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center mr-7">
+                        <input
+                          type="number"
+                          name="recZX1lmyyZXr57OC"
+                          class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
+                          placeholder="0"
+                          min="0"
+                          max="1"
+                        />
+                        <span
+                          class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
+                          >82€</span
+                        >
+                      </div>
+                      <span class="text-gray-700"
+                        >Autocar + forfait + lloguer snowboard + casc</span
+                      >
+                    </div>
+                  </div>
+                  <hr class="my-2 border-gray-300" />
+
+                  <div class="flex items-center">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center mr-7">
+                        <input
+                          type="number"
+                          name="recDv4MHPdryvCpny"
+                          class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20 quantity-input"
+                          placeholder="0"
+                          min="0"
+                          max="1"
+                        />
+                        <span
+                          class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
+                          >0€</span
+                        >
+                      </div>
+                      <span class="text-gray-700"
+                        >Classe grupal d’esquí de 2 hores optativa</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center mr-7">
+                        <input
+                          type="number"
+                          name="rec9GkVnJHXPiJLNB"
+                          class="border border-gray-300 rounded-l-lg text-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-20"
+                          placeholder="0"
+                          min="0"
+                          max="1"
+                        />
+                        <span
+                          class="border border-gray-300 border-l-0 bg-gray-200 rounded-r-lg text-lg p-2 w-16 flex items-center justify-center"
+                          >0€</span
+                        >
+                      </div>
+                      <span class="text-gray-700"
+                        >Classe grupal de snowboard de 2 hores optativa</span
+                      >
+                    </div>
+                  </div>
+                  <hr class="my-2 border-gray-300" />
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div class="mt-4">
+                <label class="flex items-center space-x-2 text-gray-700">
+                  <input type="checkbox" id="terms-checkbox" class="form-checkbox h-4 w-4 text-blue-500" />
+                  <span class="text-sm">He llegit i accepto els <a href="https://www.esquibusok.com/1_montgat_tiana/condicions.htm" class="underline" target="_blank">Térmes i Condicions</a></span>
+                </label>
+              </div>
+              <div class="pt-4 block items-center">
+                <button type="submit" id="submitButton" form="registerForm" class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none disabled:opacity-30">
+                  <div class="hidden" id="spinner">
+                    <div class="border-gray-300 h-5 w-5 animate-spin rounded-full border-2 border-t-blue-600"></div>
+                  </div>
+                  <span id="buttonText" class="mr-2">Pagar 0€</span>
+                </button>
+                <p class="text-center italic text-xs text-gray-500">La página redirigirá automáticamente a la pasarela de pago. Tienes que volver a la aplicación para completar el pedido.</p>
+              </div>
+            </form>
+
+            <hr class="my-2 border-gray-300" />
+            <div class="text-center">
+              <label class="text-sm text-gray-700">Amb la col·laboració de:</label>
+              <div class="mt-2 flex justify-center"> <!-- Agrega margen superior para crear espacio -->
+                  <img src="../images/tiana.png" alt="Goil Logo" class="inline-block h-10 mr-4"> <!-- Agrega margen a la derecha -->
+                  <img src="../images/montgat.png" alt="Goil Logo" class="inline-block h-10 mr-4">
+                  <img src="../images/espai_jove.png" alt="Goil Logo" class="inline-block h-10 mr-4 ">
+                  <img src="../images/club_esport_jove.png" alt="Goil Logo" class="inline-block h-10 mr-4 ">
+                  <img src="../images/esportsestel.png" alt="Goil Logo" class="inline-block h-10 mr-4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="https://goil.app" class="text-[#3A3A3A] font-medium">
+          <p class="text-center">Powered by 
+            <img src="../images/logo_goil.svg" alt="Goil Logo" class="inline-block" style="height: 1em;">
+          </p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

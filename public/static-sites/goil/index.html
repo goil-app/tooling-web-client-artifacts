@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulari d'Inscripció</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Shadows+Into+Light+Two&display=swap"
+    rel="stylesheet"
+  >
+  </head>
+  <body class="bg-[#F7F9FC]">
+    <div class="min-h-screen py-6 flex flex-col justify-center">
+      <div class="py-3 sm:max-w-4xl sm:mx-auto">
+        <div
+          class="bg-white shadow rounded-2xl sm:p-10"
+        >
+          <div class="max-w-2xl">
+            <div class=" items-center">
+              <div
+                class="flex flex-col font-semibold self-start text-black space-y-10"
+              >
+
+                <div class="">
+                    <img style="height: 2.5em;" src="data:image/png;base64, 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" alt="Logo" />
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <h2 class="text-xl">Hola:</h2>
+                    <p class="block text-lg text-black font-light leading-tight">
+                    Nos ponemos en contacto contigo para hacerte saber que <span class="text-red-500 font-semibold">{{ Community }}</span> ha mandado una notificación.<br />
+                    A continuación, puedes encontrar el contenido.
+                    </p>
+                </div>
+
+                <div class="my-4 bg-neutral-700 rounded-[25.87px] px-4 py-5 text-neutral-50 space-y-3 ">
+                    <div class="flex flex-row justify-between text-xs font-light">
+                        <div> {{ Community }} </div>
+                        <div> ahora </div>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold">{{ Lorem Ipsum es simplemente el texto de relleno de las }}</p>
+                        <p class="text-base font-light">{{ Lorem Ipsum es simplemente el texto de relleno de las o de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos }}</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center space-y-4 pt-6">
+        <p class="text-sm text-gray-500">Este mensaje esta relacionado con tu cuenta de <span class="text-red-500 font-bold"> {{ Community }}</span> de Goil. <br /> 
+            Para poder acceder a ella, descarga la app <span class="text-red-500 font-bold"> Community by Goil </span> y introduce el código <span class="text-red-500 font-bold"> {{ Code }}</span>.</p>
+            
+        <p class="text-sm text-gray-500 font-semibold">Goil Security SL, C/ Oto Ferrer, 7-9, 2n 2a, El Vendrell, 43700. <br />
+            Cif: B04947446
+
+        </p>    
+      </div>
+    </div>
+  </body>
+</html>
