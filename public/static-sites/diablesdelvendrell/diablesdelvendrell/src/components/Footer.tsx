@@ -1,5 +1,9 @@
 const Footer = () => {
-  return <div className="text-center mt-10">Powered by Goil</div>;
+  return (
+    <div className="text-center my-10 text-gray-200">
+      Powered by <span className="font-bold">Goil</span>
+    </div>
+  );
 };
 
 export default Footer;
