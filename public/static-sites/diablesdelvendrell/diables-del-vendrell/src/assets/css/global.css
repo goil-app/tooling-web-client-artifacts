@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "cinzel";
+  src: url("../fonts/Cinzel/Cinzel-VariableFont_wght.ttf") format("truetype");
+}
+
+.font {
+  font-family: "cinzel";
+}
+
+.image-background {
+  background-image: url("/img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
