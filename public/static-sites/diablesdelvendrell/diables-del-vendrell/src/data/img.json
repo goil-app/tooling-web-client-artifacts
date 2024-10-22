@@ -1,162 +1,202 @@
 [
   {
     "image": "Alferes-min.jpg",
+    "normal-image": "Alferes.jpg",
     "name": "Alferes"
   },
   {
     "image": "Angel-min.jpg",
+    "normal-image": "Angel.jpg",
     "name": "Angel"
   },
   {
     "image": "Arcangel_Sant_Miquel-min.jpg",
+    "normal-image": "Arcangel_Sant_Miquel.jpg",
     "name": "Arcangel Sant Miquel"
   },
   {
     "image": "Barber-min.jpg",
+    "normal-image": "Barber.jpg",
     "name": "Barber"
   },
   {
     "image": "Borro-min.jpg",
+    "normal-image": "Borro.jpg",
     "name": "Borro"
   },
   {
     "image": "Boter-min.jpg",
+    "normal-image": "Boter.jpg",
     "name": "Boter"
   },
   {
     "image": "Centinela-min.jpg",
+    "normal-image": "Centinela.jpg",
     "name": "Centinela"
   },
   {
     "image": "Cultivado-min.jpg",
+    "normal-image": "Cultivado.jpg",
     "name": "Cultivado"
   },
   {
     "image": "Diable_25e-min.jpg",
+    "normal-image": "Diable_25e.jpg",
     "name": "Diable 25e"
   },
   {
     "image": "Diablessa-min.jpg",
+    "normal-image": "Diablessa.jpg",
     "name": "Diablessa"
   },
   {
     "image": "El_Boc-min.jpg",
+    "normal-image": "El_Boc.jpg",
     "name": "El Boc"
   },
   {
     "image": "Escriptor-min.jpg",
+    "normal-image": "Escriptor.jpg",
     "name": "Escriptor"
   },
   {
     "image": "Escultor-min.jpg",
+    "normal-image": "Escultor.jpg",
     "name": "Escultor"
   },
   {
     "image": "Fogoner-min.jpg",
+    "normal-image": "Fogoner.jpg",
     "name": "Fogoner"
   },
   {
     "image": "Forner-min.jpg",
+    "normal-image": "Forner.jpg",
     "name": "Forner"
   },
   {
     "image": "Fuster-min.jpg",
+    "normal-image": "Fuster.jpg",
     "name": "Fuster"
   },
   {
     "image": "Grallera-min.jpg",
+    "normal-image": "Grallera.jpg",
     "name": "Grallera"
   },
   {
     "image": "Inventor-min.jpg",
+    "normal-image": "Inventor.jpg",
     "name": "Inventor"
   },
   {
     "image": "La_mascara-min.jpg",
+    "normal-image": "La_mascara.jpg",
     "name": "La Mascara"
   },
   {
     "image": "Llucifer-min.jpg",
+    "normal-image": "Llucifer.jpg",
     "name": "Llucifer"
   },
   {
     "image": "Mestra-min.jpg",
+    "normal-image": "Mestra.jpg",
     "name": "Mestra"
   },
   {
     "image": "Mossen-min.jpg",
+    "normal-image": "Mossen.jpg",
     "name": "Mossen"
   },
   {
     "image": "Music-min.jpg",
+    "normal-image": "Music.jpg",
     "name": "Music"
   },
   {
     "image": "Mut-min.jpg",
+    "normal-image": "Mut.jpg",
     "name": "Mut"
   },
   {
     "image": "Optic-min.jpg",
+    "normal-image": "Optic.jpg",
     "name": "Optic"
   },
   {
     "image": "PabeneiterA-min.jpg",
+    "normal-image": "PabeneiterA.jpg",
     "name": "Pabeneiter A"
   },
   {
     "image": "PabeneiterU-min.jpg",
+    "normal-image": "PabeneiterU.jpg",
     "name": "Pabeneiter U"
   },
   {
     "image": "Pages-min.jpg",
+    "normal-image": "Pages.jpg",
     "name": "Pages"
   },
   {
     "image": "Periodista-min.jpg",
+    "normal-image": "Periodista.jpg",
     "name": "Periodista"
   },
   {
     "image": "Pintor-min.jpg",
+    "normal-image": "Pintor.jpg",
     "name": "Pintor"
   },
   {
     "image": "Politic-min.jpg",
+    "normal-image": "Politic.jpg",
     "name": "Politic"
   },
   {
     "image": "Porrer-min.jpg",
+    "normal-image": "Porrer.jpg",
     "name": "Porrer"
   },
   {
     "image": "Reservista-min.jpg",
+    "normal-image": "Reservista.jpg",
     "name": "Reservista"
   },
   {
     "image": "Saquer-min.jpg",
+    "normal-image": "Saquer.jpg",
     "name": "Saquer"
   },
   {
     "image": "Terrisaire-min.jpg",
+    "normal-image": "Terrisaire.jpg",
     "name": "Terrisaire"
   },
   {
     "image": "Timbaler-min.jpg",
+    "normal-image": "Timbaler.jpg",
     "name": "Timbaler"
   },
   {
     "image": "Verema-min.jpg",
+    "normal-image": "Verema.jpg",
     "name": "Verema"
   },
   {
     "image": "Versaire-min.jpg",
+    "normal-image": "Versaire.jpg",
     "name": "Versaire"
   },
   {
     "image": "Vilipendiu-min.jpg",
+    "normal-image": "Vilipendiu.jpg",
     "name": "Vilipendiu"
   },
   {
     "image": "Xatonaire-min.jpg",
+    "normal-image": "Xatonaire.jpg",
     "name": "Xatonaire"
   },
   {

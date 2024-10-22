@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface PopupProps {
   data: {
-    image: string;
+    normalImage: string;
     name: string;
   };
   onClose: () => void;
@@ -16,7 +16,7 @@ const Popup: React.FC<PopupProps> = ({ data, onClose, isClosing }) => {
   const [loading, setLoading] = useState(true);
 
   const dataImage = {
-    image: data.image,
+    image: data.normalImage,
     name: data.name,
   };
 

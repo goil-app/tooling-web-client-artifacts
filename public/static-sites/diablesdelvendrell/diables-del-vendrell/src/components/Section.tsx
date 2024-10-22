@@ -32,7 +32,7 @@ const Section: React.FC<SectionProps> = ({
   return (
     <div
       ref={sectionRef}
-      className={`flex flex-col gap-2 items-center justify-between p-3 rounded-md ${
+      className={`flex flex-col gap-2 items-center justify-between m-2 rounded-md ${
         locked ? "cursor-default" : "cursor-pointer"
       }`}
       onClick={() => (locked ? null : onClick(data))}
