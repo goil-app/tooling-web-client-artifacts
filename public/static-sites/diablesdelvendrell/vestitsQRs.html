@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionando...</title>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const rid = urlParams.get('rid');
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('idValue').textContent = id || 'No disponible';
+            document.getElementById('ridValue').textContent = rid || 'No disponible';
+        });
+    </script>
+</head>
+<body>
+    <h1>Información de redirección</h1>
+    <p>ID: <span id="idValue"></span></p>
+    <p>RID: <span id="ridValue"></span></p>
+</body>
+</html>
