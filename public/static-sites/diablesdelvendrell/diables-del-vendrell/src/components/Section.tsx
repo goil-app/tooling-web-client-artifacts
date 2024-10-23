@@ -26,7 +26,7 @@ const Section: React.FC<SectionProps> = ({
   let img = data.image;
 
   if (locked) {
-    img = `/img/vestits/vestit-bloquejat.svg`;
+    img = `/img/vestit-bloquejat.svg`;
   }
 
   return (

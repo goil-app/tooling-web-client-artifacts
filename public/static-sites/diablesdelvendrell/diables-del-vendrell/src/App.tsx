@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -25,109 +26,80 @@ function App() {
   const [isClosing, setIsClosing] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [imgData, setImgData] = useState<PopupData[]>([]);
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const fetchVestits = async (userId: string) => {
-    try {
-      const response = await axios.get(
-        `https://europe-west1-goil-community.cloudfunctions.net/diablesDelVendrellGetVestits?id=${userId}&rid=XXXX`
-      );
-
-      console.log("Respuesta de Axios:", response.data);
-
-      if (response.data.data.length === 0) {
-        navigate("*");
-      } else {
-        setImgData(response.data.data);
-        setImagesLoaded(true);
-      }
-    } catch (error) {
-      console.error("Error de Axios:", error);
-      navigate("*");
-    }
-  };
+  const queryParams = new URLSearchParams(location.search);
+  const userId = queryParams.get("id");
+  const imageId = queryParams.get("rid");
 
   useEffect(() => {
-    const userId = "123";
     if (!userId) {
-      navigate("*");
+      navigate("/not-found");
       return;
     }
-    fetchVestits(userId);
-  }, [navigate]);
+
+    const fetchVestits = async () => {
+      try {
+        const response = await axios.get(
+          `https://europe-west1-goil-community.cloudfunctions.net/diablesDelVendrellGetVestits?id=${userId}`
+        );
+
+        if (response.data.data.length === 0) {
+          navigate("/not-found");
+        } else {
+          setImgData(response.data.data);
+          setImagesLoaded(true);
+
+          // Si hay un imageId, buscarlo y actualizar el estado de popupData
+          if (imageId) {
+            const foundImage = response.data.data.find(
+              (item: PopupData) => item.id === imageId
+            );
+            if (foundImage) {
+              setPopupData(foundImage);
+            } else {
+              navigate("/not-found");
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error de Axios:", error);
+        navigate("/not-found");
+      }
+    };
+
+    fetchVestits();
+  }, [userId, imageId, navigate]);
 
   const handleSectionClick = (data: PopupData) => {
-    if (data.id) {
-      setPopupData(data);
-      setIsClosing(false);
-      console.log(data);
-      const url = data.image
-        ? `?user_id=${data.id}&image_id=${data.image}`
-        : `?user_id=${data.id}`;
-      navigate(url);
-    } else {
-      console.error("User ID no existe");
-      console.log(data);
-      navigate("*");
-    }
+    setIsClosing(false);
+    setPopupData(data);
+    const url = data.image ? `?id=${userId}&rid=${data.id}` : `?id=${userId}`;
+    navigate(url);
   };
 
   const closePopup = () => {
     setIsClosing(true);
     setTimeout(() => {
       setPopupData(null);
-      navigate("/");
+      navigate(`?id=${userId}`);
     }, 300);
   };
 
-  useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const userId = queryParams.get("user_id");
-    const vestitId = queryParams.get("image_id");
-
-    if (userId && vestitId) {
-      const fetchVestitById = async () => {
-        try {
-          const response = await axios.get(
-            `https://europe-west1-goil-community.cloudfunctions.net/diablesDelVendrellGetVestitById?vestitId=${vestitId}`
-          );
-          if (response.data) {
-            setPopupData(response.data);
-          } else {
-            navigate("*");
-          }
-        } catch (error) {
-          console.error("Error fetching vestit by id", error);
-          navigate("*");
-        }
-      };
-
-      fetchVestitById();
-    }
-  }, [navigate]);
-
   const renderSections = () => {
-    if (Array.isArray(imgData) && imgData.length > 0) {
-      return imgData.map((item, index) => (
-        <div key={index} ref={(el) => (sectionRefs.current[index] = el)}>
-          <Section
-            onClick={() =>
-              handleSectionClick({
-                id: item.id,
-                image: item.image,
-                name: item.name,
-                validated: item.validated,
-              })
-            }
-            name={item.name}
-            locked={!item.validated}
-            imageName={item.image}
-          />
-        </div>
+    if (imgData.length > 0) {
+      return imgData.map((item) => (
+        <Section
+          key={item.id}
+          onClick={() => handleSectionClick(item)}
+          name={item.name}
+          locked={!item.validated}
+          imageName={item.image}
+        />
       ));
     } else {
-      navigate("*");
+      navigate("/not-found");
       return null;
     }
   };
@@ -151,7 +123,7 @@ function App() {
       <Footer />
       <Routes>
         <Route path="/:id" element={<Error404 />} />
-        <Route path="/404" element={<Error404 />} />
+        <Route path="/not-found" element={<Error404 />} />
       </Routes>
     </div>
   );
@@ -163,6 +135,7 @@ export default function AppWrapper() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="*" element={<Error404 />} />
+        <Route path="/not-found" element={<Error404 />} />
       </Routes>
     </Router>
   );

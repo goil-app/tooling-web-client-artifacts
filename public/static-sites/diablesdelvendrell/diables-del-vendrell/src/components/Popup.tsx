@@ -15,10 +15,12 @@ interface PopupProps {
 const Popup: React.FC<PopupProps> = ({ data, onClose, isClosing }) => {
   const [loading, setLoading] = useState(true);
 
-  const dataImage = {
-    image: data.image,
-    name: data.name,
-  };
+  if (!data || !data.image || !data.name) {
+    console.log("Datos no válidos para el popup:", data);
+    return null;
+  }
+
+  console.log("Datos del popup:", data);
 
   return (
     <div
@@ -60,15 +62,17 @@ const Popup: React.FC<PopupProps> = ({ data, onClose, isClosing }) => {
             )}
             <LazyLoadImage
               className={`rounded-md w-[300px] object-cover`}
-              src={dataImage.image}
+              src={data.image}
               loading="lazy"
               onLoad={() => setLoading(false)}
+              onError={() => {
+                setLoading(false);
+                console.error("Error loading image:", data.image);
+              }}
             />
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="font text-2xl font-bold text-white">
-              {dataImage.name}
-            </h2>
+            <h2 className="font text-2xl font-bold text-white">{data.name}</h2>
           </div>
         </div>
       </div>
