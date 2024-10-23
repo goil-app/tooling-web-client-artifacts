@@ -19,7 +19,7 @@ const Section: React.FC<SectionProps> = ({
   const [isLoading, setIsLoading] = useState(true);
 
   const data = {
-    image: `/img/vestits/${imageName}`,
+    image: imageName,
     name: name,
   };
 
@@ -40,7 +40,7 @@ const Section: React.FC<SectionProps> = ({
       <div className="relative w-full h-auto">
         {isLoading && (
           <div className="absolute inset-0 h-[180px] sm:h-[300px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
-            <PulseLoader color="#910000" />
+            <PulseLoader color="#ffffff" />
           </div>
         )}
         <LazyLoadImage

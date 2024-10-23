@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface PopupProps {
   data: {
-    normalImage: string;
+    image: string;
     name: string;
   };
   onClose: () => void;
@@ -16,11 +16,9 @@ const Popup: React.FC<PopupProps> = ({ data, onClose, isClosing }) => {
   const [loading, setLoading] = useState(true);
 
   const dataImage = {
-    image: data.normalImage,
+    image: data.image,
     name: data.name,
   };
-
-  console.log(`/img/vestits/Borro.jpg`);
 
   return (
     <div
@@ -62,7 +60,7 @@ const Popup: React.FC<PopupProps> = ({ data, onClose, isClosing }) => {
             )}
             <LazyLoadImage
               className={`rounded-md w-[300px] object-cover`}
-              src={`/img/vestits/${dataImage.image}`}
+              src={dataImage.image}
               loading="lazy"
               onLoad={() => setLoading(false)}
             />
