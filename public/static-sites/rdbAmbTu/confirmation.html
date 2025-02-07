@@ -8,14 +8,28 @@
 </head>
 <body class="bg-gray-100">
     <div class="min-h-screen py-6 flex flex-col justify-top sm:py-12">
-        <div class="relative py-3 sm:max-w-4xl sm:mx-auto"">
-        <div class="relative px-4 py-4 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
-            <h1 class="text-2xl font-bold text-center text-blue-600">Estacionament confirmat</h1>
-            <p class="mt-4 text-center text-gray-700">
-                Hem rebut correctament les dades correctament. Disposes d'un màxim de 90 minuts per retirar el vehicle.
-            </p>
-        </div>
+        <div class="relative py-3 sm:max-w-4xl sm:mx-auto">
+            <div class="relative px-4 py-4 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+                <h1 class="text-2xl font-bold text-center text-blue-600">Estacionament confirmat</h1>
+                <p class="mt-4 text-center text-gray-700">
+                    Hem rebut correctament les dades correctament. Disposes d'un màxim de <span id="tiempo">90</span> minuts per retirar el vehicle.
+                </p>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const zona = params.get('zone');
+            const tiempoElement = document.getElementById('tiempo');
+
+            if (zona === 'Platja') {
+                tiempoElement.textContent = '20';
+            } else if (zona === 'Poble') {
+                tiempoElement.textContent = '90';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -24,8 +24,11 @@
           const searchParams = new URLSearchParams(window.location.search);
           const finalObject = {
             "goilId": searchParams.get('id'),
-            "plate": formObject["plate"]
+            "plate": formObject["plate"],
+            "zone": formObject["location"]
           }
+
+          console.log(searchParams);
           const finalData = finalObject
           const finalJSON = JSON.stringify(finalData, null, 2);
           console.log(finalJSON);
@@ -40,7 +43,8 @@
             const data = await response.json()
             if (response.ok) {
               const searchParams = new URLSearchParams(window.location.search);
-              window.location.href = `https://goil-community.web.app/static-sites/rdbAmbTu/confirmation.html`
+              const zone = formObject["location"];
+              window.location.href = `https://goil-community.web.app/static-sites/rdbAmbTu/confirmation.html?zone=${zone}`;
             } else {
               window.alert(data.error)
               
@@ -75,7 +79,14 @@
               <div class="grid grid-cols-1 sm:grid-cols- gap-4 mb-2">
                 <h3 class="text-lg font-semibold">Informació del vehicle</h3>
                 <div>
-                  <label for="fullname" class="block text-sm font-medium text-gray-700">Introdueix aquí la matrícula del vehicle</label>
+                  <label for="location" class="block text-sm font-medium text-gray-700">Ubicació</label>
+                  <select id="location" name="location" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                    <option value="Poble">Poble</option>
+                    <option value="Platja">Platja</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="plate" class="block text-sm font-medium text-gray-700">Introdueix aquí la matrícula del vehicle</label>
                   <input type="text" id="plate" name="plate" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="" required />
                 </div>
               </div>
